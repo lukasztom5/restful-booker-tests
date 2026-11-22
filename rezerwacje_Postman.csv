@@ -1,0 +1,4 @@
+firstName,lastName,totalprice,depositpaid,checkin,checkout,additionalneeds
+Jan,Kowalski,123,true,2026-06-10,2026-06-17,Breakfast
+Paul,Jones,43,false,2026-01-11,2026-01-25,Dinner
+Greta,Lotter,146,true,2025-12-20,2026-01-06,Lunch
