@@ -1,0 +1,44 @@
+name: testy API Restful Booker w Newman
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repozytorium
+        uses: actions/checkout@v4
+
+      - name: Instalacja Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Instalacje Newman
+        run: npm install -g newman
+
+      - name: Uruchomienie polecenia A
+        #missing_id - nieistniejące id dla testów negatywnych
+        run: newman run "Restful Booker.postman_collection.json" -e "Rb - dev.postman_environment.json" --folder Setup --folder Negatywne --folder CRUD --env-var missing_id=242354 --env-var username="${{secrets.RB_USERNAME}}" --env-var password="${{secrets.RB_PASSWORD}}" --reporters cli,junit --reporter-junit-export raport_1.xml
+
+      - name: "Zapisanie raportu xml jako artefakt dla polecenia A"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raport_1
+          path: raport_1.xml
+
+      - name: Uruchomienie polecenia B
+        if: always()
+        run: newman run "Restful Booker.postman_collection.json" -e "Rb - dev.postman_environment.json" --folder Setup --folder Data-driven --env-var missing_id=242354 --env-var username="${{secrets.RB_USERNAME}}" --env-var password="${{secrets.RB_PASSWORD}}" -d rezerwacje_Postman.csv --reporters cli,junit --reporter-junit-export raport_2.xml
+
+      - name: "Zapisanie raportu xml jako artefakt dla polecenia B"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raport_2
+          path: raport_2.xml
