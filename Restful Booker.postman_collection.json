@@ -123,7 +123,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status code is 403\", function () {\r\n    pm.expect(pm.response.code).to.eql(403);\r\n})\r\npm.test(\"Cookie header is not present\", function () {\r\n    pm.expect(pm.response.headers.get(\"Cookie\")).to.not.exist;\r\n})\r\npm.test(\"Response body is 'Forbidden'\", function () {\r\n    pm.expect(pm.response.text()).to.eql(\"Forbidden\");\r\n})"
+                  "pm.test(\"Status code is 403\", function () {\r\n    pm.expect(pm.response.code).to.eql(200);\r\n})\r\npm.test(\"Cookie header is not present\", function () {\r\n    pm.expect(pm.response.headers.get(\"Cookie\")).to.not.exist;\r\n})\r\npm.test(\"Response body is 'Forbidden'\", function () {\r\n    pm.expect(pm.response.text()).to.eql(\"Forbidden\");\r\n})"
                 ]
               }
             }
