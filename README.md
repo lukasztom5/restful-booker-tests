@@ -8,7 +8,13 @@ This repository is a learning project. The API under test is Restful Booker.
 
 Expected results: run A: 38 assertions, 0 failures; run B: 33 assertions, 0 failures.
 
+How to run: install Node LTS and Newman (`npm install -g newman`), then use the commands from the Polish section below (run A and run B). Replace `<UŻYTKOWNIK>` and `<HASŁO>` with the username and password from the public Restful Booker API docs (Auth - CreateToken). The tests also run automatically in GitHub Actions on every push to `main` (secrets `RB_USERNAME` and `RB_PASSWORD` required).
+
+Note: a few tests deliberately check error behaviour of the API (for example a `null` in `depositpaid`), so they pass when the API returns an error.
+
 *Polish version below.*
+
+## Wersja polska
 
 To repozytorium przedstawia przykładowe działania żądań, kolekcji i środowiska dla Postman i interfejsu REST API.
 
