@@ -123,7 +123,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status code is 403\", function () {\r\n    pm.expect(pm.response.code).to.eql(200);\r\n})\r\npm.test(\"Cookie header is not present\", function () {\r\n    pm.expect(pm.response.headers.get(\"Cookie\")).to.not.exist;\r\n})\r\npm.test(\"Response body is 'Forbidden'\", function () {\r\n    pm.expect(pm.response.text()).to.eql(\"Forbidden\");\r\n})"
+                  "pm.test(\"Status code is 403\", function () {\r\n    pm.expect(pm.response.code).to.eql(403);\r\n})\r\npm.test(\"Cookie header is not present\", function () {\r\n    pm.expect(pm.response.headers.get(\"Cookie\")).to.not.exist;\r\n})\r\npm.test(\"Response body is 'Forbidden'\", function () {\r\n    pm.expect(pm.response.text()).to.eql(\"Forbidden\");\r\n})"
                 ]
               }
             }
@@ -441,6 +441,43 @@
             "body": {
               "mode": "raw",
               "raw": "{\n    \"firstname\": \"Jan\",\n    \"lastname\": \"Kowalski\",\n    \"totalprice\": 111,\n    \"bookingdates\": {\n        \"checkin\": \"2018-01-01\",\n        \"checkout\": \"2019-01-01\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/booking",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "booking"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Booking - depositpaid null [POST]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 500, but we expect status code 400\", function(){\r\n    pm.expect(pm.response.code).to.equal(500)\r\n})"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\": \"Jan\",\r\n    \"lastname\": \"Kowalski\",\r\n    \"totalprice\": 111,\r\n    \"depositpaid\": null,\r\n    \"bookingdates\": {\r\n        \"checkin\": \"2018-01-01\",\r\n        \"checkout\": \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\": \"Breakfast\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
