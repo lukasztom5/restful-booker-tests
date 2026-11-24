@@ -1,3 +1,15 @@
+# Restful Booker API tests (Postman + Newman)
+
+This repository shows example requests, a collection and an environment for Postman and a REST API.
+
+The collection is run in two ways: run A tests a single booking (Setup, Negative, CRUD folders), run B runs data-driven tests using a CSV file (Setup, Data-driven folders).
+
+This repository is a learning project. The API under test is Restful Booker.
+
+Expected results: run A: 38 assertions, 0 failures; run B: 33 assertions, 0 failures.
+
+*Polish version below.*
+
 To repozytorium przedstawia przykładowe działania żądań, kolekcji i środowiska dla Postman i interfejsu REST API.
 
 A to testy jednej rezerwacji (Setup, Negatywne, CRUD), B to testy sterowane danymi z plików csv (Setup, Data-driven)
