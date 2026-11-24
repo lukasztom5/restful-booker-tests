@@ -2,9 +2,7 @@
   "info": {
     "_postman_id": "90d980e5-4496-4b26-ae68-8e7557553201",
     "name": "Restful Booker",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "59591278",
-    "_collection_link": "https://go.postman.co/collection/59591278-90d980e5-4496-4b26-ae68-8e7557553201?source=collection_link"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
